@@ -8,9 +8,11 @@ const passport = require('passport')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 const db = require('./db')
 const sessionStore = new SequelizeStore({ db })
-const PORT = process.env.PORT || 4040
+const PORT = process.env.PORT || 8080
 const app = express()
 const socketio = require('socket.io')
+// const ngrok = require('ngrok');
+
 module.exports = app;
 
 /**
@@ -90,6 +92,11 @@ const startListening = () => {
 
   //
 }
+
+// const url = await ngrok.connect({
+//   addr: 404, // port or network address, defaultst to 80
+//   authtoken: 'yoLXE1zyt5PKZup4ar7c_86FUzEgxHUjugaUiq1qf9', // your authtoken from ngrok.com
+// });
 
 const syncDb = () => db.sync();
 

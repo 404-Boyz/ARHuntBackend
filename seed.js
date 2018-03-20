@@ -16,7 +16,7 @@ const users = [
   {
     firstName: 'Blue',
     lastName: 'Beard',
-    username: 'Pirate',
+    userName: 'Pirate',
     email: 'bluebeard@gmail.com',
     password: 'Pirates',
     googleID: 'crossbones',
