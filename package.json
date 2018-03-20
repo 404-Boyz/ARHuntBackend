@@ -1,0 +1,9 @@
+{
+  "name": "ARHuntBackend",
+  "version": "1.0.0",
+  "description": "Server for 404-Boyz ScavengARHunt",
+  "main": "index.js",
+  "author": "404-Boyz",
+  "license": "MIT",
+  "private": true
+}
