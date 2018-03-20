@@ -8,8 +8,11 @@
   "private": true,
   "scripts": {
     "start": "node_modules/nodemon/bin/nodemon.js -- node_modules/babel-cli/bin/babel-node.js server/index.js",
+    "start-heroku": "node server/index.js",
     "seed": "node seed.js",
-    "test": ""
+    "deploy": "git push heroku master",
+    "test": "",
+    "deploy-script": "psql postgres://lkrpnjnfsknhxc:ad444e6176bf6878f05326b466ba4d4903e1260515d3db2507594a6ad4069453@ec2-23-21-217-27.compute-1.amazonaws.com:5432/de1ks00jh9d94f -f seed.js"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -25,10 +28,10 @@
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.37.3",
+    "morgan": "^1.9.0",
     "socket.io": "^2.0.4"
   },
   "devDependencies": {
-    "morgan": "^1.9.0",
     "nodemon": "^1.17.2"
   }
 }
