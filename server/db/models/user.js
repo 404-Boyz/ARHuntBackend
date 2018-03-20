@@ -23,14 +23,14 @@ const User = db.define('user', {
       const first = this.getDataValue('firstName');
       const last = this.getDataValue('lastName');
       return first + ' ' + last;
-    },
-    userName: {
-      type: Sequelize.STRING,
-      unique: true,
-      allowNull: false,
-      validate: {
-        notEmpty: true
-      }
+    }
+  },
+  userName: {
+    type: Sequelize.STRING,
+    unique: true,
+    allowNull: false,
+    validate: {
+      notEmpty: true
     }
   },
   email: {
