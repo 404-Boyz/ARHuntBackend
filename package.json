@@ -11,8 +11,7 @@
     "start-heroku": "node server/index.js",
     "seed": "node seed.js",
     "deploy": "git push heroku master",
-    "test": "",
-    "deploy-script": "psql postgres://lkrpnjnfsknhxc:ad444e6176bf6878f05326b466ba4d4903e1260515d3db2507594a6ad4069453@ec2-23-21-217-27.compute-1.amazonaws.com:5432/de1ks00jh9d94f -f seed.js"
+    "test": ""
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
