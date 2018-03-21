@@ -7,8 +7,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "node_modules/nodemon/bin/nodemon.js -- node_modules/babel-cli/bin/babel-node.js server/index.js",
-    "start-heroku": "node server/index.js",
+    "start": "node server/index.js",
     "seed": "node seed.js",
     "deploy": "git push heroku master",
     "test": ""
