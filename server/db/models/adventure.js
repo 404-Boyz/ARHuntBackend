@@ -7,8 +7,8 @@ const Adventure = db.define('adventure', {
   locationCount: Sequelize.INTEGER,
   photoUrl: Sequelize.STRING,
   status: {
-    type: Sequelize.STRING,
-    defaultValue: 'active'
+    type: Sequelize.ENUM('active', 'inactive'),
+    defaultValue: 'inactive'
   }
 })
 

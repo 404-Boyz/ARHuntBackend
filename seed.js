@@ -25,8 +25,22 @@ const users = [
 
 const adventures = [
   {
-    name: 'Shall we begin?',
-    description: 'Get lost with the 404-Boyz!',
+    name: 'FullStack Neighborhood',
+    description: "Take a tour of fullstacks surrounding neighborhood... you might see a starbucks, a courthouse and a bunch of nice cars by the carwash. Its great!",
+    locationCount: 4,
+    photoUrl: 'https://media.sabrecdn.com/wyndhamchicago/application/files/5414/7437/1155/int-push_Chicago.jpg',
+    userId: 1
+  },
+  {
+    name: 'Chicago Highrises',
+    description: 'If You love pizza, look no further! This delicious hunt to taste a slice from every one of our Chicago-Famouse pizza spots. Come hunrgy, Leave Happy!',
+    locationCount: 4,
+    photoUrl: 'https://media.sabrecdn.com/wyndhamchicago/application/files/5414/7437/1155/int-push_Chicago.jpg',
+    userId: 1
+  },
+  {
+    name: 'Famous Chicago Pizza',
+    description: 'Take a wonderful super awesome tour of the tallest buildings in Chicago... The Sears/Willis Tower, The John Hancock, The Trump Tower, and many many more! What an enjoyable time with many buildings to visit!!! SO great!!',
     locationCount: 4,
     photoUrl: 'https://media.sabrecdn.com/wyndhamchicago/application/files/5414/7437/1155/int-push_Chicago.jpg',
     userId: 1

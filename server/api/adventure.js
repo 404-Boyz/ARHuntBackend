@@ -5,8 +5,8 @@ const { Adventure, Location } = require('../db/models')
 
 router.get('/', (req, res, next) => {
     Adventure.findAll()
-        .then(adventures => res.json(adventures))
-        .catch(console.error('Adventures not found!'))
+        .then(adventures => {console.log(adventures); res.json(adventures)})
+        .catch(next);
 });
 
 router.get('/:adventureId', (req, res, next) => {
