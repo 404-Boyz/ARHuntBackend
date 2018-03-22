@@ -1,11 +1,9 @@
 const router = require('express').Router()
 const { Adventure, Location } = require('../db/models')
 
-console.log("HIT THE ROUTE")
-
 router.get('/', (req, res, next) => {
     Adventure.findAll()
-        .then(adventures => { res.json(adventures)})
+        .then(adventures => { res.json(adventures) })
         .catch(next);
 });
 
@@ -16,14 +14,15 @@ router.get('/:adventureId', (req, res, next) => {
 });
 
 router.get('/:adventureId/location/active', (req, res, next) => {
-    
-    Location.findOne({order: [['positionInHunt', 'ASC']]},{
-            where: {
-                adventureId: req.params.adventureId,
-                visited: false
-            }
-        })
-    
+    Location.findOne({
+        order: [['positionInHunt', 'ASC']],
+        where: {
+            adventureId: req.params.adventureId,
+            visited: false
+        }
+    }
+    )
+
         .then(location => res.json(location))
         .catch(next)
 })
@@ -38,7 +37,6 @@ router.get('/:adventureId/location', (req, res, next) => {
         .then(locations => res.json(locations))
         .catch(next)
 });
-
 
 
 router.get('/:adventureId/location/:locationId', (req, res, next) => {
@@ -59,7 +57,7 @@ router.put('/:adventureId/location/:locationId', (req, res, next) => {
             id: req.body.id
         }
     })
-        .then(location =>  res.json(location))
+        .then(location => res.json(location))
         .catch(next)
 });
 
