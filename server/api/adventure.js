@@ -13,9 +13,6 @@ router.get('/:adventureId', (req, res, next) => {
         .catch(next)
 });
 
-
-
-
 router.get('/:adventureId/location', (req, res, next) => {
     Location.findAll({
         where: {
@@ -27,11 +24,24 @@ router.get('/:adventureId/location', (req, res, next) => {
 });
 
 
-router.get('/:adventureId/location/:locationId/active', (req, res, next) => {
-    Location.findAll({
+// router.get('/:adventureId/location/:locationId/active', (req, res, next) => {
+//     Location.findAll({
+//         where: {
+//             adventureId: req.params.adventureId,
+//             id: req.params.locationId
+//         },
+//         returning: true,
+//         plain: true
+//     })
+//         .then(location => res.json(location[1].dataValues))
+//         .catch(next)
+// });
+
+router.put('/:adventureId/location/:locationId/visited', (req, res, next) => {
+    return Location.update({ visited: req.body.visited, active: false }, {
         where: {
-            adventureId: req.params.adventureId,
-            id: req.params.locationId
+            adventureId: req.body.adventureId,
+            id: req.body.id
         },
         returning: true,
         plain: true
@@ -40,7 +50,7 @@ router.get('/:adventureId/location/:locationId/active', (req, res, next) => {
         .catch(next)
 });
 
-router.put('/:adventureId/location/:locationId/visited', (req, res, next) => {
+router.put('/:adventureId/location/:locationId/active', (req, res, next) => {
     return Location.update({ visited: req.body.visited }, {
         where: {
             adventureId: req.body.adventureId,
