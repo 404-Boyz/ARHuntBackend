@@ -11,7 +11,6 @@ const sessionStore = new SequelizeStore({ db })
 const PORT = process.env.PORT || 8080
 const app = express()
 const socketio = require('socket.io')
-// const ngrok = require('ngrok');
 
 module.exports = app;
 
@@ -90,13 +89,10 @@ const startListening = () => {
   // start listening (and create a 'server' object representing our server)
   const server = app.listen(PORT, () => console.log(`Getting lost on ${PORT}`))
 
-  //
+  // set up our socket control center
+  const io = socketio(server)
+  require('./socket')(io)
 }
-
-// const url = await ngrok.connect({
-//   addr: 404, // port or network address, defaultst to 80
-//   authtoken: 'yoLXE1zyt5PKZup4ar7c_86FUzEgxHUjugaUiq1qf9', // your authtoken from ngrok.com
-// });
 
 const syncDb = () => db.sync();
 
