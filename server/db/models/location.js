@@ -11,10 +11,6 @@ const Location = db.define('location', {
   visited: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
-  },
-  active: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false
   }
 })
 
