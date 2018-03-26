@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const { Adventure, Location } = require('../db/models')
 
+
 router.get('/', (req, res, next) => {
     Adventure.findAll()
         .then(adventures => { res.json(adventures) })
@@ -10,6 +11,18 @@ router.get('/', (req, res, next) => {
 router.get('/:adventureId', (req, res, next) => {
     Adventure.findById(req.params.adventureId)
         .then(adventure => res.json(adventure))
+        .catch(next)
+});
+
+
+router.put('/:adventureId', (req, res, next) => {
+    return Adventure.update({ status: req.body.status }, {
+        where: {
+            userId: req.body.userId,
+            adventureId: req.body.adventureId,
+        }
+    })
+        .then(location =>  res.json(location))
         .catch(next)
 });
 
