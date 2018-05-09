@@ -4,7 +4,9 @@ const User = require('../db/models/user')
 module.exports = router
 
 router.post('/login', (req, res, next) => {
-  User.findOne({ where: { userName: req.body.userName } })
+  User.findOne({
+    where: { userName: req.body.userName },
+  })
     .then(user => {
       if (!user) {
         res.status(401).send('User not found')
@@ -13,7 +15,8 @@ router.post('/login', (req, res, next) => {
       } else {
         req.login(user, err => (err ? next(err) : res.json(user)))
       }
-      return user
+      console.log('SESSION', req.session.passport.user, 'REQ.USER: ', req.user);
+      return { user, session: req.session.passport.user }
     })
     .catch(next)
 })
@@ -35,8 +38,10 @@ router.post('/signup', (req, res, next) => {
 })
 
 router.post('/logout', (req, res) => {
+  console.log('LOGGING OUT!')
   req.logout();
   req.session.destroy();
+  console.log('LOGGED OUT: ', req.user)
   //  from throwback do we need this?
   // res.clearCookie('cartId').redirect('/');
 })

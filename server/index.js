@@ -35,8 +35,6 @@ const createApp = () => {
   // logging middleware
   app.use(morgan('dev'))
 
-  // app.use(cookieParser())
-
   // body parsing middleware
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({ extended: true }))
@@ -45,12 +43,12 @@ const createApp = () => {
   app.use(compression())
 
   // session middleware with passport
-  // app.use(session({
-  //   secret: process.env.SESSION_SECRET || 'Not all who wander are lost',
-  //   store: sessionStore,
-  //   resave: false,
-  //   saveUninitialized: false
-  // }))
+  app.use(session({
+    secret: process.env.SESSION_SECRET || 'Not all who wander are lost',
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false
+  }))
   app.use(passport.initialize())
   app.use(passport.session())
 
