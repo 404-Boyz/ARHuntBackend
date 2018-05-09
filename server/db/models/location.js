@@ -8,6 +8,7 @@ const Location = db.define('location', {
   latitude: Sequelize.DECIMAL,
   longitude: Sequelize.DECIMAL,
   positionInHunt: Sequelize.INTEGER,
+  success: Sequelize.STRING,
   visited: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
